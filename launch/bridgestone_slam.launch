@@ -1,7 +1,7 @@
 <launch>
     <param name="use_sim_time" value="false" />
-    <arg name="video_path" default="/home/caio/bags/ros_pt1.mp4"/>
-    
+    <arg name="video_path" default="/root/bags/ros_pt1.mp4"/>
+
     <node  pkg = "turn_counter" name= "video_publisher" type="publish_video.py" clear_params="true">
         <param name="video_path" type="string" value="$(arg video_path)"/>
     </node>
@@ -21,7 +21,7 @@
     </node>
 
     <!-- Visualization -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find orb_slam3_ros)/config/orb_slam3_no_imu.rviz" output="screen" />
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find orb_slam3_ros)/config/orb_slam3_no_imu.rviz" output="screen" /> -->
 
     <!-- Trajectory path -->
     <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server_orb_slam3" output="screen" ns="orb_slam3_ros">
